@@ -1,0 +1,10 @@
+<template name="mainPage">
+    <header>
+        <h1>Recipe Book</h1>
+        {{> loginButtons}}
+    </header>
+    {{> sidePage}}
+    <main class="main-layout">
+        {{> Template.dynamic template=main}}
+    </main>
+</template>
