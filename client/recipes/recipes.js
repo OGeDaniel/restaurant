@@ -1,8 +1,13 @@
 import '../../collections/recipes';
 
-Meteor.subscribe('recipes');
+Template.recipes.onCreated(function() {
+    var self = this;
+    self.autorun(function() {
+        self.subscribe('recipes');
+    });
+})
 
-Template.Recipes.helpers({
+Template.recipes.helpers({
     recipes: () => {
         return Recipes.find({});
     }
