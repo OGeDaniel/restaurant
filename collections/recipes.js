@@ -5,7 +5,11 @@ SimpleSchema.extendOptions(['autoform']);
 Recipes = new Mongo.Collection('recipes');
 
 Recipes.allow({
-    insert: function(userId,doc) {
+    insert: function(userId, doc) {
+        return !!userId;
+    },
+
+    update: function(userId, doc) {
         return !!userId;
     }
 });
@@ -61,6 +65,14 @@ RecipeSchema = new SimpleSchema({
         autoform: {
             type: "hidden"
         }
+    }
+});
+
+Meteor.methods({
+    toggleMenuItem: function(id, currentValue) {
+        Recipes.update(id, {
+           $set: {inMenu: !currentValue}
+        });
     }
 });
 

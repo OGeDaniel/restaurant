@@ -4,4 +4,7 @@ import './recipes/recipes.js';
 import './recipes/recipeSingle.js';
 import './addOns/sidePage';
 import './addOns/header';
-import './recipes/recipe';
+import './recipes/recipe.html';
+import './recipes/recipe.js';
+import '../client/menu.js';
+import '../client/shoppingList.js';
